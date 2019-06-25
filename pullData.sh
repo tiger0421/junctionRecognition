@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "arg1: bag file name"
-echo "arg2: output file name"
+echo "arg2: output file name(option)"
 echo "arg3: topic name (option)"
 
 outputFileName="result.csv"
@@ -11,9 +11,9 @@ if [ $# -gt 1 ]; then
   if [ $# -eq 2 ]; then
     topicName=$3
   fi
-  rostopic echo -b $1 -p topicName > $outputFileName
+  rostopic echo -b $1 -p topicName >> $outputFileName
 else
-  rostopic echo -b $1 -p topicName > $outputFileName
+  rostopic echo -b $1 -p topicName >> $outputFileName
 fi
 
 echo "Done"
