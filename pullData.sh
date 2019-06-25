@@ -8,12 +8,11 @@ topicName="/scan"
 
 if [ $# -gt 1 ]; then
   outputFileName=$2
-  if [ $# -eq 2 ]; then
+  if [ $# -gt 2 ]; then
     topicName=$3
   fi
-  rostopic echo -b $1 -p topicName >> $outputFileName
-else
-  rostopic echo -b $1 -p topicName >> $outputFileName
 fi
+
+rostopic echo -b $1 -p topicName >> $outputFileName
 
 echo "Done"
